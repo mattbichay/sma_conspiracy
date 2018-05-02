@@ -22,8 +22,7 @@ auth.set_access_token(TWITTER_ACCESS_TOKEN,
 api = tweepy.API(auth,wait_on_rate_limit=True)
 
 
-topics = ['chemtrails', 'flatearther', 'extraterrestrials', 'conspiracy', 'pizzagate',
-        'HAARP', 'antivax', 'illuminati', 'hollowearth', 'vaccines']
+topics = ['911WasAnInsideJob', 'JFKFiles', 'TransformationTuesday', 'UFOs']
 
 
 
@@ -115,4 +114,8 @@ if __name__ == '__main__':
                 f.write(json.dumps(user_data, indent=1))
                 data_org[topic]['index'] += 1
                 done.append(user_id)
+            if len(glob.glob(os.path.join(data_org[topic]['out_dir'], '*.json'))) >= 25:
+                not_finished=False
+
+
     print('Done!')
